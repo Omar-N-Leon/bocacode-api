@@ -1,18 +1,21 @@
 import React from 'react';
-import Welcome from './components/common/Welcome'
+import Home from './scenes/Home'
+import Courses from './scenes/Courses'
 import './App.css'
+import {BrowserRouter as Router, Switch, Route } from "react-router-dom"
+
 
 function App() {
   return (
-    <>
-    <h1>Hello React Class!</h1>
-    <Welcome name="Omar" />
-    <Welcome name="Dennis" />
-    <Welcome name="Jan" />
-    <Welcome name="Tariq" />
-    <Welcome name="Andres" />
-    <Welcome name="Pat" />
-    </>
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route exact path="/courses" component={Courses}/>
+          <Route exact path="/courses/:id" component={Courses}/>
+          <Route exact path="/" component={Home}/>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
